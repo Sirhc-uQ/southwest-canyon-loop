@@ -24,7 +24,7 @@
         <div class="intro-meta" aria-label="路线概览">
           <div><strong>10</strong><span>段公路</span></div>
           <div><strong>10</strong><span>个地图地点</span></div>
-          <div><strong>约 23–27h</strong><span>基础驾驶估算</span></div>
+          <div><strong>约 27–32h</strong><span>基础驾驶估算</span></div>
         </div>
       </div>
       <div class="intro-index" aria-hidden="true">36° N / 111° W <span>↘</span> THE GRAND CIRCLE</div>
@@ -33,13 +33,14 @@
     <section class="map-section" aria-labelledby="map-heading">
       <div class="section-head">
         <div><span class="kicker">01 / INTERACTIVE MAP</span><h2 id="map-heading">把整条环线，<br><em>放在一张地图上。</em></h2></div>
-        <p>点击编号地点查看信息；地图上的车程标签对应下方路段。滚轮缩放已关闭，可使用按钮缩放。</p>
+        <p>点击编号地点查看信息；路线沿公路绘制，地图上的车程标签对应下方路段。滚轮缩放已关闭，可使用按钮缩放。</p>
       </div>
       <div class="map-frame">
         <div id="map" role="region" aria-label="美国西南峡谷环线交互地图"></div>
-        <div class="map-key" aria-hidden="true"><strong>ROUTE KEY</strong><span><i class="key-dot start"></i> 起终点</span><span><i class="key-dot"></i> 行程地点</span><small>连线仅示意地点顺序，具体道路请打开分段导航。</small></div>
+        <div class="map-key" aria-hidden="true"><strong>ROUTE KEY</strong><span><i class="key-dot start"></i> 起终点</span><span><i class="key-dot"></i> 行程地点</span><small>公路轨迹基于 OpenStreetMap 路网；出发前请用实时导航核对。</small></div>
+        <div class="map-status" id="map-status" hidden>公路轨迹未加载；请检查地图文件。</div>
       </div>
-      <div class="map-foot"><span>地图底图 © OpenStreetMap 贡献者</span><span>车程为常规路况粗估，不含停留、游览及临时延误。</span></div>
+      <div class="map-foot"><span>地图底图与道路数据 © OpenStreetMap 贡献者 · OSRM 路由</span><span>车程为常规路况粗估，不含停留、游览及临时延误。</span></div>
     </section>
 
     <section class="route-section" id="route-list" aria-labelledby="route-heading">
@@ -58,6 +59,7 @@
   </main>
   <footer><span>◈ SOUTHWEST CANYON LOOP</span><span>LAS VEGAS → THE CANYONS → LAS VEGAS</span></footer>
   <script src="assets/leaflet.js"></script>
+  <script src="route-geometry.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

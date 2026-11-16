@@ -12,16 +12,16 @@ const stops = [
 ];
 
 const legs = [
-  {from:0,to:1,time:'约 2.5–3 小时',sub:'经 I-15、St. George；北上第一站',via:['St. George, UT']},
+  {from:0,to:1,time:'约 3–3.5 小时',sub:'经 I-15、St. George；北上第一站',via:['St. George, UT']},
   {from:1,to:2,time:'约 2–2.5 小时',sub:'经 UT-9 与 US-89',via:['Mt Carmel Junction, UT']},
-  {from:2,to:3,time:'约 2.5–3 小时',sub:'可走 UT-12；景观停车另计',via:['Escalante, UT','Boulder, UT']},
-  {from:3,to:4,time:'约 2.5–3 小时',sub:'经 UT-24、I-70 前往 Moab',via:['Hanksville, UT','Green River, UT']},
-  {from:4,to:5,time:'约 45–60 分钟',sub:'经 Moab，公园入口之间的转场',via:['Moab, UT']},
-  {from:5,to:6,time:'约 3.5–4 小时',sub:'经 Moab、Blanding；按 Island in the Sky 计算',via:['Moab, UT','Blanding, UT']},
-  {from:6,to:7,time:'约 2–2.5 小时',sub:'经 Kayenta 前往 Page',via:['Kayenta, AZ']},
-  {from:7,to:8,time:'约 20 分钟',sub:'Page 周边短途转场',via:['Page, AZ']},
-  {from:8,to:9,time:'约 2.5–3 小时',sub:'经 Cameron、Desert View 进入南缘',via:['Cameron, AZ','Desert View Watchtower, Grand Canyon, AZ']},
-  {from:9,to:0,time:'约 4.5 小时',sub:'约 278 英里 · 经 Williams、Kingman',via:['Williams, AZ','Kingman, AZ']}
+  {from:2,to:3,time:'约 3–3.5 小时',sub:'可走 UT-12；景观停车另计',via:['Escalante, UT','Boulder, UT']},
+  {from:3,to:4,time:'约 3–3.5 小时',sub:'经 UT-24、I-70 前往 Moab',via:['Hanksville, UT','Green River, UT']},
+  {from:4,to:5,time:'约 1–1.25 小时',sub:'经 Moab，公园入口之间的转场',via:['Moab, UT']},
+  {from:5,to:6,time:'约 4–4.5 小时',sub:'经 Moab、Blanding；按 Island in the Sky 计算',via:['Moab, UT','Blanding, UT']},
+  {from:6,to:7,time:'约 2.5–3 小时',sub:'经 Kayenta 前往 Page',via:['Kayenta, AZ']},
+  {from:7,to:8,time:'约 30–45 分钟',sub:'Page 周边短途转场',via:[]},
+  {from:8,to:9,time:'约 3–3.5 小时',sub:'经 Cameron、Desert View 进入南缘',via:['Cameron, AZ','Desert View Watchtower, Grand Canyon, AZ']},
+  {from:9,to:0,time:'约 5–5.5 小时',sub:'约 278 英里 · 经 Williams、Kingman',via:['Williams, AZ','Kingman, AZ']}
 ];
 
 function directions(leg){
@@ -40,20 +40,28 @@ if(typeof L!=='undefined'){
   const map=L.map('map',{scrollWheelZoom:false,zoomControl:false,preferCanvas:true});
   L.control.zoom({position:'bottomright'}).addTo(map);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18}).addTo(map);
-  const sequence=[...stops.map(s=>s.point),stops[0].point];
-  L.polyline(sequence,{color:'#fff7e7',weight:8,opacity:.95,lineCap:'round',lineJoin:'round'}).addTo(map);
-  L.polyline(sequence,{color:'#b95f38',weight:3.5,opacity:.95,lineCap:'round',lineJoin:'round',dashArray:'1 0'}).addTo(map);
+  const roadLegs=window.ROUTE_GEOMETRY?.legs;
+  if(roadLegs?.length===legs.length){
+    roadLegs.forEach(road=>{
+      L.polyline(road.points,{color:'#fff7e7',weight:8,opacity:.95,lineCap:'round',lineJoin:'round'}).addTo(map);
+      L.polyline(road.points,{color:'#b95f38',weight:3.5,opacity:.95,lineCap:'round',lineJoin:'round'}).addTo(map);
+    });
+  }else{
+    document.querySelector('#map-status').hidden=false;
+  }
   const markers=stops.map((stop,index)=>{
     const icon=L.divIcon({className:'pin-wrap',html:`<span class="pin ${index===0?'pin-start':''}">${index===0?'◈':String(index).padStart(2,'0')}</span>`,iconSize:[34,34],iconAnchor:[17,17]});
     return L.marker(stop.point,{icon,title:stop.name}).addTo(map).bindPopup(`<div class="stop-popup"><small>${index===0?'START / FINISH':`STOP ${String(index).padStart(2,'0')}`}</small><strong>${stop.name}</strong><span>${stop.en}</span><p>${stop.detail}</p></div>`);
   });
-  legs.forEach((leg,index)=>{
-    const a=stops[leg.from].point,b=stops[leg.to].point;
-    const t=index===7?.52:.5;
-    const midpoint=[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t];
-    L.marker(midpoint,{interactive:false,icon:L.divIcon({className:'time-wrap',html:`<span class="time-label">${leg.time.replace('约 ','')}</span>`})}).addTo(map);
-  });
-  map.fitBounds(L.latLngBounds(stops.map(s=>s.point)),{padding:[76,76]});
+  if(roadLegs?.length===legs.length){
+    legs.forEach((leg,index)=>{
+      const points=roadLegs[index].points;
+      const midpoint=points[Math.floor(points.length/2)];
+      L.marker(midpoint,{interactive:false,icon:L.divIcon({className:'time-wrap',html:`<span class="time-label">${leg.time.replace('约 ','')}</span>`})}).addTo(map);
+    });
+  }
+  const bounds=roadLegs?.length===legs.length?roadLegs.flatMap(road=>road.points):stops.map(s=>s.point);
+  map.fitBounds(L.latLngBounds(bounds),{padding:[76,76]});
   document.querySelectorAll('.leg').forEach(card=>{
     card.addEventListener('mouseenter',()=>{const leg=legs[Number(card.dataset.leg)];markers[leg.to].openPopup();});
     card.addEventListener('focus',()=>{const leg=legs[Number(card.dataset.leg)];markers[leg.to].openPopup();});
