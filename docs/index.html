@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17282b">
+  <meta name="description" content="拉斯维加斯出发的美国西南峡谷环线地图，标记大峡谷、羚羊峡谷、纪念碑谷和犹他国家公园，并列出分段车程。">
+  <title>美国西南峡谷环线 · 路线地图</title>
+  <link rel="stylesheet" href="assets/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top"><span class="brand-mark">◈</span> SOUTHWEST CANYON LOOP</a>
+    <a class="top-link" href="#route-list">查看分段车程 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="intro-inner">
+        <div class="eyebrow"><span class="eyebrow-line"></span> LAS VEGAS · GRAND CIRCLE · LAS VEGAS</div>
+        <h1 id="page-title">一路向峡谷，<br><em>绕过红色大地。</em></h1>
+        <p>从拉斯维加斯出发，经大峡谷南缘、佩吉与纪念碑谷，串起犹他州的五座国家公园，再回到拉斯维加斯。</p>
+        <div class="intro-meta" aria-label="路线概览">
+          <div><strong>10</strong><span>段公路</span></div>
+          <div><strong>10</strong><span>个地图地点</span></div>
+          <div><strong>约 23–27h</strong><span>基础驾驶估算</span></div>
+        </div>
+      </div>
+      <div class="intro-index" aria-hidden="true">36° N / 111° W <span>↘</span> THE GRAND CIRCLE</div>
+    </section>
+
+    <section class="map-section" aria-labelledby="map-heading">
+      <div class="section-head">
+        <div><span class="kicker">01 / INTERACTIVE MAP</span><h2 id="map-heading">把整条环线，<br><em>放在一张地图上。</em></h2></div>
+        <p>点击编号地点查看信息；地图上的车程标签对应下方路段。滚轮缩放已关闭，可使用按钮缩放。</p>
+      </div>
+      <div class="map-frame">
+        <div id="map" role="region" aria-label="美国西南峡谷环线交互地图"></div>
+        <div class="map-key" aria-hidden="true"><strong>ROUTE KEY</strong><span><i class="key-dot start"></i> 起终点</span><span><i class="key-dot"></i> 行程地点</span><small>连线仅示意地点顺序，具体道路请打开分段导航。</small></div>
+      </div>
+      <div class="map-foot"><span>地图底图 © OpenStreetMap 贡献者</span><span>车程为常规路况粗估，不含停留、游览及临时延误。</span></div>
+    </section>
+
+    <section class="route-section" id="route-list" aria-labelledby="route-heading">
+      <div class="section-head">
+        <div><span class="kicker">02 / THE DRIVE</span><h2 id="route-heading">每段车程，<br><em>一眼看清。</em></h2></div>
+        <p>点开任一路段可查看 Google Maps 导航。Page 一带的马蹄湾与羚羊峡谷分开标记；游览时间未计入车程。</p>
+      </div>
+      <div id="legs" class="leg-grid"></div>
+      <div class="route-note"><span class="note-icon">i</span><p>大峡谷按<strong>南缘 Grand Canyon Village</strong>计算，峡谷地国家公园按 <strong>Island in the Sky</strong> 计算。羚羊峡谷按 Page 附近的入口区域计算。公园入口、停车场和园内观景点之间仍可能需要额外驾驶。</p></div>
+    </section>
+
+    <section class="sources" aria-labelledby="source-heading">
+      <div><span class="kicker">03 / PLANNING NOTES</span><h2 id="source-heading">出发前再核对。</h2></div>
+      <div class="source-content"><p>这是基于常规道路的规划草图。各段时间是估算值；出发前用实时导航核对路线、路况和目的地入口，尤其留意偏远地区的交通与公园开放情况。</p><div class="source-links"><a href="https://www.nps.gov/grca/planyourvisit/directions_s_rim.htm" target="_blank" rel="noopener">大峡谷南缘交通 ↗</a><a href="https://www.nps.gov/brca/planyourvisit/upload/Bryce_Canyon_Visitor_Guide_508-07112024.pdf" target="_blank" rel="noopener">布莱斯周边车程 ↗</a><a href="https://www.nps.gov/glca/planyourvisit/directions.htm" target="_blank" rel="noopener">Page 区域交通 ↗</a><a href="https://www.visitarizona.com/like-a-local/uk-road-trip" target="_blank" rel="noopener">亚利桑那路线参考 ↗</a></div></div>
+    </section>
+  </main>
+  <footer><span>◈ SOUTHWEST CANYON LOOP</span><span>LAS VEGAS → THE CANYONS → LAS VEGAS</span></footer>
+  <script src="assets/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
