@@ -4,27 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17282b">
-  <meta name="description" content="拉斯维加斯出发的美国西南峡谷环线地图，标记大峡谷、羚羊峡谷、纪念碑谷和犹他国家公园，并列出分段车程。">
-  <title>美国西南峡谷环线 · 路线地图</title>
+  <meta name="description" content="2026 年 12 月 24 日至 2027 年 1 月 2 日：LA、拉斯维加斯、Moab 与 Kanab 的逐日行程、公路地图和分段车程。">
+  <title>西南峡谷公路旅行 · 2026.12.24—2027.01.02</title>
   <link rel="stylesheet" href="assets/leaflet.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="#top"><span class="brand-mark">◈</span> SOUTHWEST CANYON LOOP</a>
-    <a class="top-link" href="#route-list">查看分段车程 <span aria-hidden="true">↗</span></a>
+    <a class="top-link" href="#plan">查看逐日计划 <span aria-hidden="true">↗</span></a>
   </header>
 
   <main id="top">
     <section class="intro" aria-labelledby="page-title">
       <div class="intro-inner">
-        <div class="eyebrow"><span class="eyebrow-line"></span> LAS VEGAS · GRAND CIRCLE · LAS VEGAS</div>
-        <h1 id="page-title">一路向峡谷，<br><em>绕过红色大地。</em></h1>
-        <p>从拉斯维加斯先向北到锡安，再经布莱斯、圆顶礁、拱门与峡谷地，南下穿过纪念碑谷和 Page，最后由大峡谷南缘返回拉斯维加斯。</p>
+        <div class="eyebrow"><span class="eyebrow-line"></span> 2026.12.24 — 2027.01.02 · SOUTHWEST ROAD TRIP</div>
+        <h1 id="page-title">从 LA 出发，<br><em>在峡谷之间落脚。</em></h1>
+        <p>12 月 24 日晚从 LA 到拉斯维加斯，接着住 Moab 和 Kanab 游览四座国家公园。12 月 31 日回到拉斯维加斯，1 月 2 日晚返回 LA。</p>
         <div class="intro-meta" aria-label="路线概览">
-          <div><strong>10</strong><span>段公路</span></div>
-          <div><strong>10</strong><span>个地图地点</span></div>
-          <div><strong>约 27–32h</strong><span>基础驾驶估算</span></div>
+          <div><strong>10</strong><span>天行程</span></div>
+          <div><strong>8</strong><span>个地图地点</span></div>
+          <div><strong>约 35–40h</strong><span>基础驾驶估算</span></div>
         </div>
       </div>
       <div class="intro-index" aria-hidden="true">36° N / 111° W <span>↘</span> THE GRAND CIRCLE</div>
@@ -32,32 +32,40 @@
 
     <section class="map-section" aria-labelledby="map-heading">
       <div class="section-head">
-        <div><span class="kicker">01 / INTERACTIVE MAP</span><h2 id="map-heading">把整条环线，<br><em>放在一张地图上。</em></h2></div>
-        <p>点击编号地点查看信息；路线沿公路绘制，地图上的车程标签对应下方路段。滚轮缩放已关闭，可使用按钮缩放。</p>
+        <div><span class="kicker">01 / INTERACTIVE MAP</span><h2 id="map-heading">先走 Moab，<br><em>再住 Kanab。</em></h2></div>
+        <p>地图沿公路显示转场和公园往返。点击地点或路线查看日期；车程和每天的安排在下方。滚轮缩放已关闭。</p>
       </div>
       <div class="map-frame">
         <div id="map" role="region" aria-label="美国西南峡谷环线交互地图"></div>
-        <div class="map-key" aria-hidden="true"><strong>ROUTE KEY</strong><span><i class="key-dot start"></i> 起终点</span><span><i class="key-dot"></i> 行程地点</span><small>公路轨迹基于 OpenStreetMap 路网；出发前请用实时导航核对。</small></div>
+        <div class="map-key" aria-hidden="true"><strong>ROUTE KEY</strong><span><i class="key-dot start"></i> LA / Las Vegas</span><span><i class="key-dot base"></i> 住宿基地</span><span><i class="key-dot park"></i> 国家公园</span><small>蓝线为从住宿基地出发的往返。公路轨迹基于 OpenStreetMap 路网。</small></div>
         <div class="map-status" id="map-status" hidden>公路轨迹未加载；请检查地图文件。</div>
       </div>
       <div class="map-foot"><span>地图底图与道路数据 © OpenStreetMap 贡献者 · OSRM 路由</span><span>车程为常规路况粗估，不含停留、游览及临时延误。</span></div>
     </section>
 
+    <section class="plan-section" id="plan" aria-labelledby="plan-heading">
+      <div class="section-head">
+        <div><span class="kicker">02 / DAY BY DAY</span><h2 id="plan-heading">十天安排，<br><em>先按城市落下。</em></h2></div>
+        <p>Moab 和 Kanab 的酒店地址与住宿日期已补齐。12 月 31 日至 1 月 2 日的具体活动，以及 LA、Las Vegas 的住址待补充。</p>
+      </div>
+      <div id="timeline" class="timeline"></div>
+    </section>
+
     <section class="route-section" id="route-list" aria-labelledby="route-heading">
       <div class="section-head">
-        <div><span class="kicker">02 / THE DRIVE</span><h2 id="route-heading">每段车程，<br><em>一眼看清。</em></h2></div>
-        <p>点开任一路段可查看 Google Maps 导航。路线从锡安开始编号；Page 一带的羚羊峡谷与马蹄湾分开标记。游览时间未计入车程。</p>
+        <div><span class="kicker">03 / THE DRIVE</span><h2 id="route-heading">每段车程，<br><em>一眼看清。</em></h2></div>
+        <p>点开任一路段可查看 Google Maps 导航。公园日按从 Moab 或 Kanab 出发再返回计算；1 月 1 日没有固定驾驶段。</p>
       </div>
       <div id="legs" class="leg-grid"></div>
-      <div class="route-note"><span class="note-icon">i</span><p>大峡谷按<strong>南缘 Grand Canyon Village</strong>计算，峡谷地国家公园按 <strong>Island in the Sky</strong> 计算。羚羊峡谷按 Page 附近的入口区域计算。公园入口、停车场和园内观景点之间仍可能需要额外驾驶。</p></div>
+      <div class="route-note"><span class="note-icon">i</span><p>Moab 和 Kanab 路段已按所订酒店定位；LA、Las Vegas 暂按城市中心，公园暂按游客中心估算。其他地址补齐后，车程和道路轨迹还需再核对。</p></div>
     </section>
 
     <section class="sources" aria-labelledby="source-heading">
-      <div><span class="kicker">03 / PLANNING NOTES</span><h2 id="source-heading">出发前再核对。</h2></div>
-      <div class="source-content"><p>这是基于常规道路的规划草图。各段时间是估算值；出发前用实时导航核对路线、路况和目的地入口，尤其留意偏远地区的交通与公园开放情况。</p><div class="source-links"><a href="https://www.nps.gov/grca/planyourvisit/directions_s_rim.htm" target="_blank" rel="noopener">大峡谷南缘交通 ↗</a><a href="https://www.nps.gov/brca/planyourvisit/upload/Bryce_Canyon_Visitor_Guide_508-07112024.pdf" target="_blank" rel="noopener">布莱斯周边车程 ↗</a><a href="https://www.nps.gov/glca/planyourvisit/directions.htm" target="_blank" rel="noopener">Page 区域交通 ↗</a><a href="https://www.visitarizona.com/like-a-local/uk-road-trip" target="_blank" rel="noopener">亚利桑那路线参考 ↗</a></div></div>
+      <div><span class="kicker">04 / PLANNING NOTES</span><h2 id="source-heading">待补的细节。</h2></div>
+      <div class="source-content"><p>Moab：Hoodoo Moab，12 月 25 日入住、28 日退房。Kanab：Holiday Inn Express & Suites Kanab，12 月 28 日入住、31 日退房。LA 与 Las Vegas 的具体地址，以及 12 月 31 日至 1 月 2 日的活动仍待补充。出发前请按实时导航和当日道路、公园信息核对。</p></div>
     </section>
   </main>
-  <footer><span>◈ SOUTHWEST CANYON LOOP</span><span>LAS VEGAS → THE CANYONS → LAS VEGAS</span></footer>
+  <footer><span>◈ SOUTHWEST CANYON LOOP</span><span>LA → LAS VEGAS → MOAB → KANAB → LAS VEGAS → LA</span></footer>
   <script src="assets/leaflet.js"></script>
   <script src="route-geometry.js"></script>
   <script src="app.js"></script>
